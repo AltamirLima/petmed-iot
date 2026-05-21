@@ -1,114 +1,119 @@
-# 🐾 PetMed IoT
+# 🚀 Implementação da Solução — PetMed IoT
 
-Sistema inteligente para monitoramento de pets utilizando IoT, automação, visão computacional e dashboard web.
+## 📌 Sobre a Implementação
 
-O objetivo do projeto é monitorar temperatura, atividade, alimentação e comportamento do pet em tempo real, utilizando dispositivos simulados no Wokwi, API Flask e análise comportamental via OpenCV.
+O projeto **PetMed IoT** foi desenvolvido com foco em monitoramento inteligente de pets utilizando conceitos de:
 
----
+* Internet das Coisas (IoT)
+* Visão Computacional
+* API REST
+* Automação
+* Monitoramento em tempo real
 
-## 👥 Integrantes
-
-| Nome | RM |
-|---|---|
-| Olavo Porto Neves | RM563558 |
-| Altamir Lima | RM562906 |
-| Felipe Conte | RM562248 |
-| Luiz Gustavo | RM564495 |
-| Pedro Henrique Dias França | RM561940 |
+A solução integra dispositivos ESP32 simulados no Wokwi, comunicação HTTP, processamento com Python/OpenCV e um Dashboard Flask centralizado.
 
 ---
 
-## 🔗 Repositório GitHub
+# 🧠 Arquitetura da Solução
 
+A solução é composta por quatro módulos principais:
 
-https://github.com/AltamirLima/petmed-iot
+## 1️⃣ Coleira Inteligente
 
----
+Responsável pelo monitoramento do pet.
 
-## 🎯 Problema Proposto
+### Funcionalidades:
 
-Muitos tutores possuem dificuldades em acompanhar a saúde e o comportamento do pet quando estão fora de casa.
+* Temperatura simulada
+* Batimentos cardíacos
+* Nível de estresse
+* Envio de dados via HTTP
 
-Problemas comuns incluem:
+### Tecnologias:
 
-- falta de monitoramento da temperatura corporal;
-- ausência de controle alimentar;
-- dificuldade para detectar comportamentos anormais;
-- falta de informações sobre o bem-estar do animal.
-
-O projeto **PetMed IoT** foi desenvolvido para resolver esse problema através de:
-
-- IoT;
-- Visão Computacional;
-- Dashboard Web;
-- Monitoramento remoto.
+* ESP32
+* Wokwi
+* Arduino C++
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## 2️⃣ Dispenser Automático
 
-### Backend
-- Python
-- Flask
-- Flask-CORS
+Responsável pela automação da alimentação.
 
-### Visão Computacional
-- OpenCV
-- Background Subtraction (MOG2)
+### Funcionalidades:
 
-### IoT
-- ESP32 (simulado no Wokwi)
-- HTTP REST API
+* Alimentação automática
+* Controle de acionamento
+* Integração com API Flask
 
-### Dashboard
-- Flask Dashboard
+### Tecnologias:
 
-### Comunicação
-- HTTP
+* ESP32
+* Wokwi
+* HTTP REST
 
 ---
 
-## 🏗️ Arquitetura do Sistema
+## 3️⃣ Visão Computacional
 
-O sistema funciona através da integração entre dispositivos IoT, visão computacional e dashboard.
+Responsável pela análise comportamental do animal.
 
-### Fluxo da aplicação
+### Funcionalidades:
 
-- Coleira Inteligente (ESP32) → API Flask
-- Dispenser Automático (ESP32) → API Flask
-- Webcam/OpenCV → API Flask
-- API Flask → Dashboard Web
+* Captura da webcam
+* Detecção de movimento
+* Monitoramento comportamental
 
-![Arquitetura](assets/arquitetura.png)
+### Tecnologias:
 
----
-
-## 🤖 Inteligência Artificial
-
-O projeto utiliza **Visão Computacional com OpenCV** para análise comportamental do pet.
-
-Através da técnica de **Background Subtraction (MOG2)**, o sistema identifica movimentações e padrões comportamentais, permitindo detectar possíveis situações como:
-
-- estresse;
-- hiperatividade;
-- movimentação intensa;
-- ausência prolongada de atividade.
-
-Esses dados são enviados para a API e podem ser visualizados no dashboard.
+* Python
+* OpenCV
+* Background Subtraction MOG2
 
 ---
 
-## ⚙️ Estrutura do Projeto
+## 4️⃣ Dashboard/API
 
-```txt
+Responsável pela centralização das informações.
+
+### Funcionalidades:
+
+* Exibição dos dados
+* Recebimento das informações IoT
+* Endpoints REST
+* Monitoramento em tempo real
+
+### Tecnologias:
+
+* Flask
+* Flask-CORS
+* Python
+
+---
+
+# 🌐 Fluxo do Sistema
+
+```text
+ESP32/Wokwi
+      ↓
+HTTP REST
+      ↓
+API Flask
+      ↓
+Dashboard
+      ↓
+Monitoramento em tempo real
+```
+
+---
+
+# 📂 Estrutura do Projeto
+
+```text
 petmed_iot/
 │
 ├── assets/
-│   ├── arquitetura.png
-│   ├── dashboard.png
-│   ├── visao.png
-│   ├── coleira.png
-│   └── dispenser.png
 │
 ├── python/
 │   ├── dashboard.py
@@ -119,15 +124,31 @@ petmed_iot/
 ├── wokwi/
 │
 ├── requirements.txt
-│
-└── README.md
+├── README.md
+└── DESCRICAO_PROJETO.md
 ```
 
 ---
 
-## ▶️ Como Executar o Projeto
+# ▶️ Como Executar o Projeto
 
-### 1. Instalar dependências
+## 1️⃣ Clonar o repositório
+
+```bash
+git clone https://github.com/AltamirLima/petmed-iot.git
+```
+
+---
+
+## 2️⃣ Entrar na pasta
+
+```bash
+cd petmed-iot
+```
+
+---
+
+## 3️⃣ Instalar dependências
 
 ```bash
 pip install -r requirements.txt
@@ -135,39 +156,15 @@ pip install -r requirements.txt
 
 ---
 
-### 2. Executar o Dashboard
+# ▶️ Executando os módulos
+
+## Dashboard/API
 
 ```bash
-python dashboard.py
+python python/dashboard.py
 ```
 
----
-
-### 3. Executar a Coleira Inteligente
-
-```bash
-python coleira_inteligente.py
-```
-
----
-
-### 4. Executar o Dispenser
-
-```bash
-python dispenser.py
-```
-
----
-
-### 5. Executar a Visão Computacional
-
-```bash
-python visao_computacional.py
-```
-
----
-
-### 6. Abrir no navegador
+Abrir no navegador:
 
 ```text
 http://localhost:5000
@@ -175,134 +172,85 @@ http://localhost:5000
 
 ---
 
-## 🌐 Endpoints da API
+## Coleira Inteligente
 
-### Coleira
-
-```http
-GET /api/coleira
-POST /api/coleira
+```bash
+python python/coleira_inteligente.py
 ```
 
 ---
 
-### Dispenser
+## Dispenser Automático
 
-```http
-GET /api/dispenser
-POST /api/dispenser
+```bash
+python python/dispenser.py
 ```
 
 ---
 
-### Visão Computacional
+## Visão Computacional
 
-```http
-GET /api/visao
-POST /api/visao
+```bash
+python python/visao_computacional.py
 ```
 
 ---
 
-### Status do Sistema
+# 📡 Comunicação da Solução
 
-```http
-GET /api/status
-```
+Os módulos utilizam comunicação HTTP REST.
 
----
-
-## 📦 Exemplo de Dados
-
-### Coleira Inteligente
+Exemplo de payload enviado:
 
 ```json
 {
   "temperatura": 38.2,
   "batimentos": 92,
-  "stress": "baixo",
-  "gps": {
-    "lat": -23.5505,
-    "lng": -46.6333
-  }
+  "stress": "baixo"
 }
 ```
 
 ---
 
-### Dispenser
+# 📊 Tecnologias Utilizadas
 
-```json
-{
-  "status": "alimentado",
-  "horario": "08:00"
-}
-```
-
----
-
-### Visão Computacional
-
-```json
-{
-  "movimento": 50233,
-  "status": "movimento_intenso"
-}
-```
+| Tecnologia | Finalidade          |
+| ---------- | ------------------- |
+| Python     | Backend             |
+| Flask      | API/Dashboard       |
+| OpenCV     | Visão Computacional |
+| ESP32      | IoT                 |
+| Wokwi      | Simulação           |
+| HTTP REST  | Comunicação         |
 
 ---
 
-## 📈 Regras de Negócio
+# ⭐ Diferenciais da Solução
 
-O sistema foi desenvolvido para:
-
-- monitorar atividade do pet;
-- identificar movimentações anormais;
-- acompanhar alimentação;
-- registrar temperatura e sinais vitais;
-- fornecer monitoramento remoto via dashboard.
-
----
-
-## 🔍 Monitoramento em Tempo Real
-
-Os sensores simulados enviam dados continuamente para a API Flask, permitindo:
-
-- atualização dinâmica;
-- monitoramento remoto;
-- visualização em tempo real;
-- integração entre IoT e IA.
+* Integração completa entre IoT e IA
+* Monitoramento em tempo real
+* Dashboard centralizado
+* Simulação funcional no Wokwi
+* Uso de OpenCV
+* Arquitetura modular
+* API REST integrada
 
 ---
 
-## ✅ Status do Projeto
+# 👥 Integrantes
 
-Projeto funcional contendo:
-
-- ✔️ IoT com ESP32 (Wokwi)
-- ✔️ Dashboard Flask
-- ✔️ API REST
-- ✔️ OpenCV
-- ✔️ Visão Computacional
-- ✔️ Monitoramento remoto
-- ✔️ Integração entre módulos
+| Nome                       | RM       |
+| -------------------------- | -------- |
+| Olavo Porto Neves          | RM563558 |
+| Altamir Lima               | RM562906 |
+| Felipe Conte               | RM562248 |
+| Luiz Gustavo               | RM564495 |
+| Pedro Henrique Dias França | RM561940 |
 
 ---
 
-## 🎥 Demonstração em Vídeo
+# 📌 Conclusão
 
-No vídeo serão apresentados:
+O PetMed IoT demonstra como tecnologias modernas podem ser utilizadas para automatizar e monitorar o cuidado animal.
 
-- arquitetura do sistema;
-- dispositivos IoT;
-- dashboard;
-- endpoints;
-- visão computacional;
-- comunicação entre módulos;
-- funcionamento completo do sistema.
-
----
-
-## 📄 Licença
-
-Projeto acadêmico desenvolvido para fins educacionais.
+O projeto integra IoT, automação, API REST e Inteligência Artificial em uma única solução funcional e escalável.
