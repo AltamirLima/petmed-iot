@@ -21,7 +21,7 @@ O objetivo do projeto é monitorar temperatura, atividade, alimentação e compo
 ## 🔗 Repositório GitHub
 
 
-https://github.com/olavoporto/petmed_iot
+https://github.com/AltamirLima/petmed-iot
 
 ---
 
